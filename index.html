@@ -1,4 +1,196 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
+  <html>
+  <head>
+    <title>Portofolio Siswa - Darius</title>
+    <style>
+      body {
+        background-color: #e0f2f1;
+        padding: 40px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      }
+
+      h1 {
+        color: #00796b;
+        margin-bottom: 20px;
+      }
+
+      .search-box {
+        margin-bottom: 20px;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        width: 70%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .project {
+        margin: 30px 0;
+        padding: 20px;
+        background: #f9f9f9;
+        border-left: 5px solid #4db6ac;
+        text-align: left;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .project img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin: 10px 0;
+      }
+
+      .btn, .toggle-btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #4db6ac;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        cursor: pointer;
+      }
+
+      .btn:hover, .toggle-btn:hover {
+        background-color: #00897b;
+        transform: scale(1.05);
+      }
+
+      p {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Portofolio Siswa - Darius</h1>
+      <p>Berikut daftar proyek yang telah saya kerjakan:</p>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Cari proyek... (misal: kartu, formulir)">
+      </div>
+
+      <div id="projectsContainer">
+        <!-- Semua project akan dimuat di sini -->
+      </div>
+    </div>
+
+    <script>
+      // Data proyek dalam bentuk array
+      const projects = [
+        {
+          title: "1. Website Biodata Diri",
+          img: "dariusganteng.jpg",
+          desc: "Menampilkan informasi pribadi seperti nama, hobi, dan cita-cita dengan HTML & CSS dasar.",
+          link: "biodata.html"
+        },
+        {
+          title: "2. Website Kartu Informasi",
+          img: "https://via.placeholder.com/800x300?text=Kartu+Informasi",
+          desc: "Desain kartu nama atau kartu identitas menggunakan HTML dan CSS dengan layout menarik.",
+          link: "#"
+        },
+        {
+          title: "3. Website Resep Makanan",
+          img: "https://via.placeholder.com/800x300?text=Resep+Makanan",
+          desc: "Berisi resep masakan favorit dengan daftar bahan, langkah-langkah, dan gambar hidangan.",
+          link: "menu.html"
+        },
+        {
+          title: "4. Website Kartu Undangan",
+          img: "https://via.placeholder.com/800x300?text=Kartu+Undangan",
+          desc: "Membuat undangan digital seperti ulang tahun, pernikahan, atau acara sekolah.",
+          link: "#"
+        },
+        {
+          title: "5. Website Formulir",
+          img: "https://via.placeholder.com/800x300?text=Formulir+Online",
+          desc: "Formulir pendaftaran online dengan elemen input, radio, checkbox, dan tombol kirim.",
+          link: "#"
+        },
+        {
+          title: "6. Website Jadwal Pelajaran",
+          img: "https://via.placeholder.com/800x300?text=Jadwal+Pelajaran",
+          desc: "Tabel interaktif berisi jadwal pelajaran mingguan dengan tampilan rapi dan warna-warna menarik.",
+          link: "#"
+        },
+        {
+          title: "7. Website Project Akhir",
+          img: "https://via.placeholder.com/800x300?text=Project+Akhir",
+          desc: "Gabungan seluruh materi HTML & CSS dalam satu proyek kreatif sebagai ujian praktik akhir semester.",
+          link: "#"
+        },
+        {
+          title: "8. Website Ujian Praktek",
+          img: "https://via.placeholder.com/800x300?text=Ujian+Praktek",
+          desc: "Website hasil ujian praktek informatika sebagai penilaian akhir dari pembelajaran HTML dan CSS.",
+          link: "#"
+        }
+      ];
+
+      const container = document.getElementById('projectsContainer');
+
+      function renderProjects(filteredProjects = projects) {
+        container.innerHTML = ""; // kosongkan
+        filteredProjects.forEach((project) => {
+          const div = document.createElement('div');
+          div.className = 'project';
+          div.innerHTML = `
+            <h3>${project.title}</h3>
+            <img src="${project.img}" alt="${project.title}">
+            <p>${project.desc}</p>
+            <a href="${project.link}" class="btn">Lihat Proyek</a>
+            <button class="toggle-btn" onclick="toggleProject(this)">Sembunyikan</button>
+          `;
+          container.appendChild(div);
+        });
+      }
+
+      // Tampilkan semua project saat pertama kali
+      renderProjects();
+
+      // Fungsi untuk toggle tampil/sembunyi
+      function toggleProject(btn) {
+        const projectDiv = btn.closest('.project');
+        const desc = projectDiv.querySelector('p');
+        const img = projectDiv.querySelector('img');
+
+        if (desc.style.display === 'none') {
+          desc.style.display = 'block';
+          img.style.display = 'block';
+          btn.textContent = 'Sembunyikan';
+        } else {
+          desc.style.display = 'none';
+          img.style.display = 'none';
+          btn.textContent = 'Tampilkan';
+        }
+      }
+
+      // Pencarian proyek berdasarkan input
+      document.getElementById('searchInput').addEventListener('input', function () {
+        const keyword = this.value.toLowerCase();
+        const filtered = projects.filter(p =>
+          p.title.toLowerCase().includes(keyword) ||
+          p.desc.toLowerCase().includes(keyword)
+        );
+        renderProjects(filtered);
+      });
+    </script>
+  </body>
+  </html> html>
   <html>
   <head>
     <title>Portofolio Siswa - Darius</title>
@@ -191,3 +383,4 @@
     </script>
   </body>
   </html>
+
