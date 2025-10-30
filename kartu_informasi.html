@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kartu Fakta Menarik — Teknologi</title>
+  <style>
+    .content {
+        background-color: #60b6b2;
+        padding: 40px;
+        text-align: center;
+        border-radius: 100px ;
+        font-family: Arial, sans-serif;
+      }
+
+      .card-fakta {
+        max-width: 800px;
+        margin: auto;
+        background: rgb(126, 193, 209);
+        padding: 30px;
+        border-radius: 150px;
+        box-shadow: 0 0 15px rgba(91, 99, 218, 0.1);
+        transition: opacity 0.5s ease;
+      }
+
+      h1 {
+        color: #00796b;
+        margin-bottom: 20px;
+      }
+
+      .search-box {
+        margin-bottom: 20px;
+      }
+
+      .factImage[type="text"] {
+        padding: 10px;
+        width: 70%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .factImage {
+        max-width: 100%;
+        border-radius: 8px;
+        margin: 10px 0;
+      }
+
+      .facts-list {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: rgb(102, 194, 194);
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        border-radius: 15px;
+        font-size: 18px;
+        transition: opacity 0.3s ease, transform 0.2s ease;
+        cursor: pointer;
+      }
+
+      .fade-out {
+        opacity: 0;
+      }
+
+      .image {
+        border-radius: 15px;
+      }
+
+      li{
+            font-family:"ab";
+            color:rgb(255, 255, 255)
+        }
+        h2{
+            font-family:"ab";
+            color:rgb(255, 255, 255)
+        }
+        
+      @font-face {
+    font-family: "ab";
+    src: url("beachday.ttf");
+}
+  </style>
+</head>
+<body style="background-color:rgba(100, 255, 255, 0.644)">
+<center>
+  <div class="card-fakta">
+    <img id="factImage" src="mola1.jpg" />
+    <div class="content">
+      <h2>Fakta Menarik tentang Ikan Mola-Mola</h2>
+      <p class="subtitle">Tahukah kamu fakta-fakta unik ini?</p>
+
+      <ul class="facts-list" id="factList">
+        <li>Berasal dari kata Latin: Nama "mola mola" berasal dari kata Latin yang berarti "batu giling" karena bentuknya yang bulat dan warna abu-abu serta tekstur kulitnya yang kasar. </li>
+        <li>Ikan bertulang sejati terberat di dunia: Mereka adalah ikan bertulang terberat di dunia, dengan berat rata-rata mencapai 1.000 kg dan ukuran bisa lebih dari 3 meter. </li>
+        <li>Bisa mencapai berat lebih dari satu mobil: Beratnya bisa mencapai lebih dari 2 ton, setara dengan satu mobil pick-up, dengan rekor berat ikan mola-mola terbesar mencapai hampir 3 ton. </li>
+        <li>Tidak memiliki sirip ekor: Sebagai gantinya, mereka memiliki clavus, yaitu sirip yang menyambung di bagian atas dan bawah, yang berbentuk seperti gergaji atau bulatan. </li>
+      </ul>
+
+      <button class="btn-next" id="nextFact">🔁 Fakta Selanjutnya</button>
+
+      <div class="card-footer">© 2025 | Fakta Teknologi • Informatika SMP</div>
+    </div>
+  </div>
+
+  <script>
+    const factData = [
+      {
+        image: "mola2.jpg",
+        facts: [
+          "Berjemur di permukaan: Mereka sering naik ke permukaan untuk berjemur dan menghangatkan tubuh setelah menyelam di perairan dingin",
+          "Dijuluki 'ikan matahari' (sunfish) Karena kebiasaan berjemur ini, mereka sering dijuluki sunfish. ",
+          "Pernah disangka hiu: Saat sirip punggungnya yang tinggi muncul di permukaan, sering kali disalahpahami sebagai sirip hiu. ",
+          "Dianggap sebagai plankton raksasa: Karena cara bergeraknya yang tidak bisa melawan arus, beberapa ahli menggolongkannya sebagai plankton raksasa. "
+         
+        ]
+      },
+      {
+        image: "mola3.jpg",
+        facts: [
+          "Bisa mengubah warna kulit: Mereka dapat mengubah warna kulit menjadi lebih gelap untuk melindungi diri dari predator. ",
+          "Punya banyak parasit: Kulitnya yang tidak bersisik menjadi rumah bagi banyak parasit. ",
+          "Membersihkan diri dengan bantuan ikan lain: Mereka akan berenang ke terumbu karang untuk dibersihkan dari parasit oleh ikan-ikan kecil lain, seperti ikan kupu-kupu dan angelfish. ",
+          "Populasinya terancam: Ancaman terhadap ikan mola-mola termasuk perubahan iklim dan penangkapan ikan. "
+        ]
+      },
+      {
+        image: "mola4.jpg",
+        facts: [
+          "Kerabat dekat ikan buntal: Kerabat terdekatnya adalah ikan buntal dan triggerfish",
+          "Memakan ubur-ubur: Makanan favorit mereka adalah ubur-ubur, meskipun mereka juga memakan plankton, krustasea, cumi-cumi, dan ikan kecil lainnya. ",
+          "Cara makan yang unik: Mereka memiliki mulut kecil berbentuk seperti paruh dan menggunakan metode menghisap dan meludahi berulang kali untuk menghancurkan makanannya hingga bisa ditelan. ",
+          "Kulitnya tebal dan kuat: Beberapa penelitian menunjukkan kulitnya sangat tebal sehingga bisa menahan tembakan peluru"
+        ]
+      },
+      {
+        image: "mola5.jpg",
+        facts: [
+          "Bertelur paling banyak: Mereka adalah salah satu jenis hewan bertulang yang menghasilkan telur terbanyak, mencapai hingga 300 juta telur dalam satu musim kawin. ",
+          "Bisa menyelam sangat dalam: Meskipun sering berjemur, mereka juga bisa menyelam hingga kedalaman 800 meter (2.600 kaki)",
+          "Bertubuh pipih: Meskipun ukurannya sangat besar, tubuhnya tidak menggembung, melainkan pipih dan tipis.",
+          "Bergerak lambat: Karena bentuk tubuhnya, mereka tidak bisa bergerak cepat dan cenderung mengikuti arus"
+        ]
+      }
+    ];
+
+    const factList = document.getElementById("factList");
+    const factImage = document.getElementById("factImage");
+    const nextBtn = document.getElementById("nextFact");
+
+    nextBtn.addEventListener("click", () => {
+      factList.classList.add("fade-out");
+      setTimeout(() => {
+        const randomFact = factData[Math.floor(Math.random() * factData.length)];
+        factImage.style.opacity = 0;
+
+        setTimeout(() => {
+          factImage.src = randomFact.image;
+          factImage.style.opacity = 1;
+        }, 400);
+
+        factList.innerHTML = randomFact.facts.map(f => `<li>${f}</li>`).join("");
+        factList.classList.remove("fade-out");
+      }, 500);
+    });
+  </script>
+</center>
+</body>
+</html>
